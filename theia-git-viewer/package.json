@@ -9,7 +9,10 @@
     "src"
   ],
   "dependencies": {
-    "@theia/core": "latest"
+    "@isomorphic-git/lightning-fs": "^4.4.1",
+    "@theia/core": "latest",
+    "@theia/filesystem": "latest",
+    "browserfs": "^1.4.3"
   },
   "devDependencies": {
     "rimraf": "latest",

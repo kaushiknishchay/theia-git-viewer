@@ -2,11 +2,14 @@
  * Generated using theia-extension-generator
  */
 import { ContainerModule } from 'inversify';
-import { TheiaGitViewerContribution } from './theia-git-viewer-contribution';
+import { TheiaGitViewerStorageContribution } from './theia-git-viewer-contribution';
+import {TheiaGitViewerStorageProvider} from './theia-git-viewer-storage-provider';
+import { FileServiceContribution } from '@theia/filesystem/lib/browser/file-service';
 
+export default new ContainerModule((bind, unbind, isBound, rebind) => {
 
-export default new ContainerModule(bind => {
-
+    bind(TheiaGitViewerStorageProvider).toSelf().inSingletonScope();
     // Replace this line with the desired binding, e.g. "bind(CommandContribution).to(TheiaGitViewerContribution)
-    bind(TheiaGitViewerContribution).toSelf();
+    bind(TheiaGitViewerStorageContribution).toSelf().inSingletonScope();
+    rebind(FileServiceContribution).toService(TheiaGitViewerStorageContribution);
 });
