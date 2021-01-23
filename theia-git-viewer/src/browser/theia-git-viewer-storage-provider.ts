@@ -14,9 +14,19 @@ export class TheiaGitViewerStorageProvider implements FileSystemProviderWithFile
     protected readonly deferredReady = new Deferred<void>();
     
     constructor(){
-
+console.log(FS)
         this.fs = new FS('filesystem').promises;
-        this.fs.writeFile('/home/codespace/hello.txt', "Hello WOrld")
+        // this.fs.mkdir("/home");
+        this.fs.mkdir("/home/codespace"+Math.random());
+        this.fs.mkdir("/home/codespaces"+Math.random());
+        // this.fs.writeFile('/home/codespace/hello.txt'+Math.random(), "Hello WOrld")
+        // this.fs.writeFile('/home/codespaces/hello.txt'+Math.random(), "Hello WOrld")
+        
+        (async() => {
+            console.log(await this.fs.stat("/home"))
+            console.log(await this.fs.readdir("/home"))
+
+        })()
         // BrowserFS.FileSystem.IndexedDB.Create({}, (e: any, idbfs: any) => {
         //     BrowserFS.FileSystem.MountableFileSystem.Create({
         //         '/': idbfs,

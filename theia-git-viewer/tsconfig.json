@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "allowJs": true,
         "skipLibCheck": true,
         "declaration": true,
         "declarationMap": true,
@@ -12,7 +13,7 @@
         "emitDecoratorMetadata": true,
         "downlevelIteration": true,
         "resolveJsonModule": true,
-        "module": "commonjs",
+        "module": "es6",
         "moduleResolution": "node",
         "target": "es5",
         "jsx": "react",
